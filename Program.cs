@@ -11,8 +11,14 @@ namespace Snake
     {
         static void Main(string[] args)
         {
-            Draw(1,2,'+');
-            Draw(1, 3, '-');
+            Point P1 = new Point();
+            P1.x = 1;
+            P1.y = 3;
+            P1.sym = '!';
+            P1.Draw();
+            //Draw(P1.x, P1.y, P1.sym);
+            /*Draw(1,2,'+');
+            Draw(1, 3, '-');*/
             Console.ReadLine();
         }
 
