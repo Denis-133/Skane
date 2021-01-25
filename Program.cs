@@ -9,50 +9,30 @@ namespace Snake
 {
     class Program
     {
+        public string a;
         static void Main(string[] args)
         {
-            Point p1 = new Point(10,2,'*');
-            Point p2 = new Point(5,5,'*');
-            Point p3 = new Point(5, 6, '#');
-            Point p4 = new Point(5, 7, '@');
-
+            Point p1 = new Point(1,1,'*');
             p1.Draw();
 
-            List<int> numList = new List<int>();
-            numList.Add(0);
-            numList.Add(1);
-            numList.Add(2);
+            Point p2 = new Point(1, 2, '*');
+            p2.Draw();
 
-            int x = numList[0];
-            int y = numList[1];
-            int z = numList[2];
 
-            /*for (int i=0; i<numList.Count; i++) {
-                Console.WriteLine(i);
-            }*/
-            foreach (int i in numList) {
-                Console.WriteLine(i);
-            }
+            HorizontalLine xline1 = new HorizontalLine(1,100,1,'+');
+            xline1.Drow();
 
-            numList.RemoveAt(0);
+            HorizontalLine xline2 = new HorizontalLine(1, 100, 30, '+');
+            xline2.Drow();
+
+            VerticalLine yline1 = new VerticalLine(1, 30, 1, '+');
+            yline1.Drow();
+
+            VerticalLine yline2 = new VerticalLine(1, 30, 100, '+');
+            yline2.Drow();
+
+            Console.ReadLine();
         
-            List <char> Sym = new List<char>() { '*', '*', '#', '*'};
-            foreach (char i in Sym)
-            {
-                Console.WriteLine(i);
-            }
-
-            List<Point> pList = new List<Point>();
-            pList.Add(p1);
-            pList.Add(p2);
-            pList.Add(p3);
-            pList.Add(p4);
-
-            foreach (Point p in pList)
-            {
-                p.Draw();
-            }
-
         }
     }
 }
