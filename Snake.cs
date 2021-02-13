@@ -45,5 +45,48 @@ namespace Snake
             return nextPoint;
 
         }
+
+        public void HandleKey(ConsoleKey key) {
+            Direction last = direction;
+            if (key == ConsoleKey.RightArrow && last != Direction.LEFT) {
+                direction = Direction.RIGHT;
+            }
+            else if (key == ConsoleKey.LeftArrow && last != Direction.RIGHT) {
+                direction = Direction.LEFT;
+            }
+            else if (key == ConsoleKey.UpArrow && last != Direction.DOWN) {
+                direction = Direction.UP;
+            }
+            else if (key == ConsoleKey.DownArrow && last != Direction.UP) {
+                direction = Direction.DOWN;
+            }
+        }
+
+        internal bool Eat(Point food) {
+            Point head = GetNextPoint();
+            //Point head = this.pList.Last();
+            if (head.IsHit(food))
+            {
+                food.sym = head.sym;
+                pList.Add(food);
+                return true;
+            }
+            else {
+            return false;
+            }
+        }
+
+
+        internal bool IsHitTail()
+        {
+            var head = pList.Last();
+            for (int i = 0; i < pList.Count - 2; i++)
+            {
+                if (head.IsHit(pList[i]))
+                    return true;
+            }
+            return false;
+        }
+
     }
 }
